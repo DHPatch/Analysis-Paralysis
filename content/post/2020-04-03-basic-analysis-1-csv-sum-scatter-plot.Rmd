@@ -1,0 +1,51 @@
+---
+title: Basic analysis 1 - built in datasets, sum, scatter plot
+author: David
+date: '2020-04-03'
+slug: basic-analysis-1-csv-sum-scatter-plot
+categories: []
+tags: []
+---
+
+### Install libraries
+```{r}
+#install.packages("tidyverse")
+```
+
+
+### Load libraries
+```{r}
+#library(tidyverse)
+library(dplyr)
+#library(readr)
+library(ggplot2)
+```
+
+
+### Assigning data (iris)
+```{r}
+raw_data <- iris
+```
+
+### Doing a sum
+```{r}
+sum(raw_data$Petal.Length)
+```
+
+### Summarise
+```{r}
+summarise(raw_data,
+          petal_length = sum(Petal.Length),
+          petal_width = sum(Petal.Width),
+          sepal_length = sum(Sepal.Length),
+          sepal_width = sum(Sepal.width),
+          )
+```
+
+### Basic scatter plot
+```{r}
+ggplot(data = raw_data, 
+       mapping = aes(x = Petal.Width, y = Petal.Length)) +
+  geom_point()
+```
+
